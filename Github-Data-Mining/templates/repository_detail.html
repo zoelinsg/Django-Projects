@@ -1,0 +1,13 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/django-projects/Github-Data-Mining/templates/repository_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container repository-detail">
+        <h2>{{ repository.name }}</h2>
+        <p><strong>星數:</strong> {{ repository.stars }}</p>
+        <p><strong>語言:</strong> {{ repository.language }}</p>
+        <p><strong>技術棧:</strong> {{ repository.tech_stack }}</p>
+        <p><strong>GitHub:</strong> <a href="{{ repository.url }}" target="_blank">{{ repository.url }}</a></p>
+        <p><a href="{% url 'repository-list-view' %}" class="btn btn-primary">返回倉庫列表</a></p>
+    </div>
+{% endblock %}

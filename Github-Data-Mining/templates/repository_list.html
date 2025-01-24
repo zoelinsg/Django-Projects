@@ -1,0 +1,21 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/django-projects/Github-Data-Mining/templates/repository_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>倉庫列表</h2>
+        <div class="repository-list">
+            {% for repo in repositories %}
+                <div class="repository-item">
+                    <div class="repository-meta">
+                        <h3><a href="{% url 'repository-detail-view' repo.pk %}">{{ repo.name }}</a></h3>
+                        <p><strong>星數:</strong> {{ repo.stars }}</p>
+                        <p><strong>語言:</strong> {{ repo.language }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>沒有找到倉庫。</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
