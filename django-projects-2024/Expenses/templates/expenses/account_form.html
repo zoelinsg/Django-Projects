@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load custom_filters %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">{% if form.instance.pk %}編輯帳戶{% else %}新增帳戶{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">帳戶名稱</label>
+            {{ form.name|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            <label for="id_balance">帳戶餘額</label>
+            {{ form.balance|add_class:"form-control" }}
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+            <button type="submit" class="btn btn-primary me-2">{% if form.instance.pk %}更新{% else %}新增{% endif %}</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">取消</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

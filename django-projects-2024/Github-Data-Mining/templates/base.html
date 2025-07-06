@@ -1,0 +1,32 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/django-projects/Github-Data-Mining/templates/base.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>開源專案數據挖掘平臺</title>
+    <!-- 加載 CSS 文件 -->
+    {% load static %}  <!-- 加載 static 標籤庫 -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">  <!-- 添加這行 -->
+</head>
+<body>
+    <header>
+        <h1>開源專案數據挖掘平臺</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">首頁</a></li>
+                <li><a href="{% url 'repository-list-view' %}">倉庫列表</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- 內容區域 -->
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 開源專案數據挖掘平臺</p>
+    </footer>
+</body>
+</html>
